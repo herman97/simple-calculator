@@ -32,7 +32,7 @@ class Register:
         Calculates the value of this register based on the operations in 
         the operations list 
         """
-        while(len(self.operations)):
+        while(self.operations):
             # Remove the operations so it is not performed again
             operation = self.operations.pop(0)
             operator = operation[0]
