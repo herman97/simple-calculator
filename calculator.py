@@ -48,7 +48,7 @@ class Register:
                 self.value = calculate(self.value, operator, int(val))
             else:
                 # Val is neither int or Register, print error message
-                print("Error, %s is not an int or a register" % val)
+                print("Error, ", val, " is not an int or a register")
 
         return self.value
 
