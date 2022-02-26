@@ -38,20 +38,17 @@ class Register:
             operator = operation[0]
             val = operation[1]
 
-            # val is not a register, so it does not need to be further
-            # evaluated
-            if isinstance(val, int):
-                self.value = calculate(self.value, operator, val)
-
-            # val is a register and needs to be evaluated before performing an
-            # operation with it
+            register = get_register(val)
+            if (register):
+                # Val is a register and needs to be evaluated
+                self.value = calculate(
+                    self.value, operator, register.perform_operations())
+            elif val.isdigit():
+                # Val is an int
+                self.value = calculate(self.value, operator, int(val))
             else:
-                register = get_register(val)
-                if (register):
-                    self.value = calculate(
-                        self.value, operator, register.perform_operations())
-                else:
-                    self.value = calculate(self.value, operator, int(val))
+                # Val is neither int or Register, print error message
+                print("Error, %s is not an int or a register" % val)
 
         return self.value
 
