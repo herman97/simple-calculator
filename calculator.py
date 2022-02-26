@@ -113,8 +113,11 @@ def read_from_file(file: str) -> list:
     Read input from file and return a list of [register, operator, value]
     """
     operations = []
-    with open(file) as f:
-        operations = [(x.lower().split()) for x in f.readlines()]
+    try:
+        with open(file) as f:
+            operations = [(x.lower().split()) for x in f.readlines()]
+    except FileNotFoundError:
+        print("No file with name '", file, "' found")
 
     return operations
 
@@ -142,7 +145,7 @@ def main():
     # File input as argument
     if len(sys.argv) > 1:
         operations = read_from_file(sys.argv[1])
-        pass
+
     # Read from input
     else:
         operations = read_from_input()
