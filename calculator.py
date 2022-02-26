@@ -140,6 +140,9 @@ def read_from_input() -> list:
 
 
 def main():
+    """
+    Handles input reading and goes through all read operations
+    """
     operations = []
 
     # File input as argument
