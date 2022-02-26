@@ -20,6 +20,8 @@ To input lines manually:
 
 then type each line you wish to input and end with 'quit' when done.
 
+All values are assumed to be integers.
+
 # Task
 
 Your task is to write a simple calculator that can add, subtract and multiply values in a set of registers. \
